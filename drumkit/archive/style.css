@@ -1,0 +1,35 @@
+
+
+
+.bigTomImg {
+  display: inline-block;
+	width: 50px;
+	height: 50px;
+  background-color: green;
+  border-radius: 50%;
+}
+
+.kickImg {
+	display:inline-block;
+  height: 150px;
+  width: 150px;
+  position:absolute;
+}
+
+.crashImg {
+  display: inline-block;
+	width: 50px;
+	height: 50px;
+  background-color: green;
+  border-radius: 50%;
+}
+
+.play{
+	display:inline-block;
+	position:absolute;
+	margin:100px;
+}
+
+.beat.play {
+	display:none;
+}

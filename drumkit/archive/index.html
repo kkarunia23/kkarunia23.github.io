@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>first projek</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+
+</head>
+
+<body>
+  <h1>follow the beats <span class="score">0</span></h1>
+  <button id="play">RANDOM BEAT</button>
+    <audio src="audioFiles/Big-Rack-Tom.mp3" id="bigTom"></audio>
+    <audio src="audioFiles/Crash.mp3" id="crash"></audio>
+    <audio src="audioFiles/Floor-Tom.mp3" id="floorTom"></audio>
+    <audio src="audioFiles/kick.wav" id="kick"></audio>
+    <audio src="audioFiles/openhat.wav" id="openHat"></audio>
+    <audio src="audioFiles/ride.wav" id="ride"></audio>
+    <audio src="audioFiles/snare.wav" id="snare"></audio>
+    <audio src="audioFiles/hihat.wav" id="hiHat"></audio>
+    <audio src="audioFiles/Small-Rack-Tom.mp3" id="smallTom"></audio>
+
+
+
+<div class="bigTomImg beat" id="bigTomSound">Big Rack Tom
+<kbd>A</kbd>
+</div>
+
+<img src ="illustrator/kick.png"class="kickImg beat" id="kickSound">
+<div >Kick
+<kbd>S</kbd>
+</div>
+
+<div class="crashImg beat" id="crashSound">Crash
+<kbd>D</kbd>
+</div>
+
+
+
+<script>
+/*let score = 0;
+const scoreBoard = document.querySelector('.score');
+const beats = document.querySelectorAll('.beat');
+
+//random amount of time the animation lasts to play
+function randomTime(min, max) {
+    return Math.round(Math.random() * (max - min) + min);
+  }
+
+//random beat that is chosen
+function randomBeat(beats) {
+
+    let i = Math.floor(Math.random() * beats.length);
+    const beat = beats[i];
+}
+
+//random beat that is played
+function randomPlay(){
+    //const time = randomTime(500,1000);
+    const beat = randomBeat(beats);
+    //beat.classList.add('play'); why undefined classlist??
+    }
+
+</script>
+
+</body>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+  crossorigin="anonymous">
+</script>
+<script src="app.js"></script>
+
+
+
+</html>
