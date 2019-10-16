@@ -173,57 +173,57 @@ $(()=>{
     var score = 0;
     let soundBank = []; //array
     let counter = 0; // number of beats
-    let sequence = 3    ;//  how many number of beats that need to be followed and pushed to soundBank array
-    let drumKit = 3; // number of drum sounds pattern
+    //let sequence = 3    ;//  how many number of beats that need to be followed and pushed to soundBank array
+    //let drumKit = 3; // number of drum sounds pattern
     userInput = false; // default start, user click will not be recognized.
 
     //let sequence = document.getElementById("sequence").value;
-    document.getElementById("drumkit").innerHTML = drumKit;
+    //document.getElementById("drumkit").innerHTML = drumKit;
 
     ///autoplay function
     function autoplay(id) {
-      document.getElementById('sound-'+id).currentTime = 0;
-      document.getElementById('sound-'+id).play();
+        document.getElementById('sound-'+id).currentTime = 0;
+        document.getElementById('sound-'+id).play();
     }
 
     const generateRandomSounds = () => {
         for(i=0; i<sequence; i++){
-            soundBank.push(Math.ceil(Math.random()*drumKit));
+            soundBank.push(Math.ceil(Math.random()*drumkit));
         }
     }
 
     /////start play
 
     const play = () =>  {// generate randomise soundBank
-      sequence = parseInt(document.getElementById('sequence').value);
-      countdown();
-      console.log(sec);
-      console.log(typeof sequence);
-      counter = 0;
-      soundBank.length = 0;
-      userKey.length = 0; //clear the array everytime random beat is pressed.
-      generateRandomSounds(); //
+        sequence = parseInt(document.getElementById('sequence').value);
+        drumkit = parseInt(document.getElementById('drumkit').value);
+        countdown();
+        //console.log(typeof sequence);
+        counter = 0;
+        soundBank.length = 0;
+        userKey.length = 0; //clear the array everytime random beat is pressed.
+        generateRandomSounds(); //
 
-      let playInterval = setInterval(function(){
-        console.log('counter:'+counter);
-        console.log(soundBank[counter]);
-        shake(soundBank[counter]);
-        autoplay(soundBank[counter]);
+        let playInterval = setInterval(function(){
+            console.log('counter:'+counter);
+            console.log(soundBank[counter]);
+            shake(soundBank[counter]);
+            autoplay(soundBank[counter]);
 
         if (counter+1 === sequence){
-                    clearInterval(playInterval);    // stop interval
-                    console.log(soundBank);
-                    userInput = true; // now user click will be recognized
-                    userTurn();
-                        if(sec>0){ //to stop the flow when timer is zero
+            clearInterval(playInterval);    // stop interval
+            console.log(soundBank);
+            userInput = true; // now user click will be recognized
+            userTurn();
+                if(sec>0){ //to stop the flow when timer is zero
                     setTimeout(function(){ userPlay();},3000);// x seconds for user to follow
                   // need to check if still time is >0, then repeat the cycle
-              }
-          }
-          else {
+                }
+            }
+            else {
             counter +=1;
-        }
-    }, 500);
+            }
+        }, 500);
     }
 
     document.getElementById("play").addEventListener("click", play);
