@@ -1,10 +1,18 @@
-.bgClass{
-	background-image: url(illustrator/background.jpg)
+body{
+	background-image: url(illustrator/studio.jpg);
 }
 
-#play{
+.bgClass{
+	background-image: url(illustrator/gameover.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: auto;
+}
+
+#play, #reset{
 	display:inline-block;
 	font-family: 'Rock Salt', cursive;
+	border-radius:50%;
 }
 
 .wrapper {
@@ -19,20 +27,30 @@
     display: table;
 }
 
-.left, .right {
+.left{
+    display: table-cell;
+    font-family: 'Rock Salt', cursive;
+    width:240px;
+    color:red;
+    padding:20px;
+}
+
+.right {
     display: table-cell;
     font-family: 'Rock Salt', cursive;
     width:200px;
     color:red;
     padding:20px;
+    font-size:25px;
 }
+
 
 .central{
 	color:red;
 	font-family: 'Rock Salt', cursive;
 	font-size:35px;
 	display: table-cell;
-	padding-left:300px;
+	text-align:center;
 }
 
 .central2{
@@ -52,10 +70,11 @@
 	display:block;
 	margin-left:auto;
 	margin-right:auto;
+
 }
 
 .patternShake {
-	animation:shake 0.5s;
+	animation:shake 0.05s;
   animation-iteration-count: infinite;
 /*  display:inline-block;
   border:0;
@@ -82,5 +101,18 @@
 }
 
 #drumkit, #sequence{
-	width:35px;
+	width:32px;
+}
+
+.alphabetClass{
+	visibility:hidden;
+}
+
+.alphabetDisplay{
+	visibility:visible;
+}
+
+#free{
+	width:150px;
+	border-radius: 50%
 }

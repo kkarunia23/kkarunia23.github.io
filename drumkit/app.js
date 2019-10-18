@@ -1,16 +1,3 @@
-  function printout() {
-   huruf = document.getElementById('testInput').value;
-   console.log(huruf);
-}
-// console.log(huruf);
-// function store(){
-//     const sequence = document.getElementById('sequence').value;
-// }
-
-//make the game continue playing while timer is still there
-// input the sequence and drumkit to modify
-
-$(()=>{
     ////shake function
     function shake(id){
         document.getElementById('pattern-'+id).classList.toggle('patternShake');
@@ -23,16 +10,16 @@ $(()=>{
     var kickX = document.getElementById("sound-1");
 
     function kick() {
-      shake(1);
-      kickX.currentTime=0;
-      document.getElementById('sound-1').play();
+        shake(1);
+        kickX.currentTime=0;
+        document.getElementById('sound-1').play();
        // console.log('2 is clicked');
     }
 
     document.getElementById("pattern-1").addEventListener("click", kick);
 
     document.addEventListener('keydown',function(e){
-        if(e.keyCode == 83){ //s
+        if(e.keyCode == 32){ //space
             kick();
         }
     })
@@ -41,16 +28,16 @@ $(()=>{
     var floorTomX = document.getElementById("sound-2");
 
     function floorTom() {
-      shake(2);
-      floorTomX.currentTime=0;
-      document.getElementById('sound-2').play();
+        shake(2);
+        floorTomX.currentTime=0;
+        document.getElementById('sound-2').play();
         //console.log('3 is clicked');
     }
 
     document.getElementById("pattern-2").addEventListener("click", floorTom);
 
     document.addEventListener('keydown',function(e){
-        if(e.keyCode == 70){ //f
+        if(e.keyCode == 90){ //Z
             floorTom();
         }
     })
@@ -59,16 +46,16 @@ $(()=>{
     var snareX = document.getElementById("sound-3");
 
     function snare() {
-      shake(3);
-      snareX.currentTime=0;
-      document.getElementById('sound-3').play();
+        shake(3);
+        snareX.currentTime=0;
+        document.getElementById('sound-3').play();
         //console.log('3 is clicked');
     }
 
     document.getElementById("pattern-3").addEventListener("click", snare);
 
     document.addEventListener('keydown',function(e){
-        if(e.keyCode == 68){ //d
+        if(e.keyCode == 77){ //m
             snare();
         }
     })
@@ -78,16 +65,16 @@ $(()=>{
     var bigTomX = document.getElementById("sound-4");
 
     function bigTom() {
-      shake(4);
-      bigTomX.currentTime=0;
-      document.getElementById('sound-4').play()
+        shake(4);
+        bigTomX.currentTime=0;
+        document.getElementById('sound-4').play()
       //console.log('1 is clicked');
     }
 
     document.getElementById("pattern-4").addEventListener("click", bigTom);
 
     document.addEventListener('keydown',function(e){
-        if(e.keyCode == 65){ //f
+        if(e.keyCode == 88){ //X
             bigTom();
         }
     })
@@ -97,16 +84,16 @@ $(()=>{
     var smallTomX = document.getElementById("sound-5");
 
     function smallTom() {
-      shake(5);
-      smallTomX.currentTime=0;
-      document.getElementById('sound-5').play()
+        shake(5);
+        smallTomX.currentTime=0;
+        document.getElementById('sound-5').play()
       //console.log('1 is clicked');
     }
 
     document.getElementById("pattern-5").addEventListener("click", smallTom);
 
     document.addEventListener('keydown',function(e){
-        if(e.keyCode == 72){ //h
+        if(e.keyCode == 78){ //n
             smallTom();
         }
     })
@@ -116,16 +103,16 @@ $(()=>{
     var hihatX = document.getElementById("sound-6");
 
     function hihat() {
-      shake(6);
-      hihatX.currentTime=0;
-      document.getElementById('sound-6').play()
+        shake(6);
+        hihatX.currentTime=0;
+        document.getElementById('sound-6').play()
       //console.log('1 is clicked');
     }
 
     document.getElementById("pattern-6").addEventListener("click", hihat);
 
     document.addEventListener('keydown',function(e){
-        if(e.keyCode == 74){ //j
+        if(e.keyCode == 76){ //L
             hihat();
         }
     })
@@ -135,9 +122,9 @@ $(()=>{
     var crashX = document.getElementById("sound-7");
 
     function crash() {
-      shake(7);
-      crashX.currentTime=0;
-      document.getElementById('sound-7').play()
+        shake(7);
+        crashX.currentTime=0;
+        document.getElementById('sound-7').play()
       //console.log('1 is clicked');
     }
 
@@ -154,16 +141,16 @@ $(()=>{
     var rideX = document.getElementById("sound-8");
 
     function ride() {
-      shake(8);
-      rideX.currentTime=0;
-      document.getElementById('sound-8').play()
+        shake(8);
+        rideX.currentTime=0;
+        document.getElementById('sound-8').play()
       //console.log('1 is clicked');
     }
 
     document.getElementById("pattern-8").addEventListener("click", ride);
 
     document.addEventListener('keydown',function(e){
-        if(e.keyCode == 76){ //l
+        if(e.keyCode == 65){ //a
             ride();
         }
     })
@@ -171,14 +158,10 @@ $(()=>{
     ////////////////////GAME LOGIC
 
     var score = 0;
-    let soundBank = []; //array
+    let userKey =[];
+    let soundBank = []; // array
     let counter = 0; // number of beats
-    //let sequence = 3    ;//  how many number of beats that need to be followed and pushed to soundBank array
-    //let drumKit = 3; // number of drum sounds pattern
     userInput = false; // default start, user click will not be recognized.
-
-    //let sequence = document.getElementById("sequence").value;
-    //document.getElementById("drumkit").innerHTML = drumKit;
 
     ///autoplay function
     function autoplay(id) {
@@ -193,11 +176,18 @@ $(()=>{
     }
 
     /////start play
+    timerStart = true;
 
     const play = () =>  {// generate randomise soundBank
         sequence = parseInt(document.getElementById('sequence').value);
         drumkit = parseInt(document.getElementById('drumkit').value);
-        countdown();
+        var freeInvisible = document.getElementById('free');
+        freeInvisible.setAttribute('class','alphabetClass')
+        console.log('timer'+timerStart);
+
+        if(timerStart==true){countdown();
+        };
+        timerStart=false;
         //console.log(typeof sequence);
         counter = 0;
         soundBank.length = 0;
@@ -205,35 +195,33 @@ $(()=>{
         generateRandomSounds(); //
 
         let playInterval = setInterval(function(){
-            console.log('counter:'+counter);
+            console.log('counter:' + counter);
             console.log(soundBank[counter]);
             shake(soundBank[counter]);
             autoplay(soundBank[counter]);
 
         if (counter+1 === sequence){
             clearInterval(playInterval);    // stop interval
-            console.log(soundBank);
             userInput = true; // now user click will be recognized
             userTurn();
-                if(sec>0){ //to stop the flow when timer is zero
-                    setTimeout(function(){ userPlay();},3000);// x seconds for user to follow
-                  // need to check if still time is >0, then repeat the cycle
+            // console.log('userkey'+userKey.length);
+            // console.log('sequence'+sequence);
+                if(sec>0){ //to stop the flow when timer hits zero, only do this when there is still time
+                    //userPlay()
+                    setTimeout(function(){
+                        userPlay();}
+                    ,2500);// x seconds for user to follow
                 }
             }
             else {
             counter +=1;
             }
-        }, 500);
+        }, 300);
     }
 
     document.getElementById("play").addEventListener("click", play);
 
-    //////////listen to user input
-        //the soundBank array that was created earlier. where is that stored, how to compare that later after the user has played their parts.
-        // user click on item, return ID, extract number from the ID name,push ID into the array
-
-        let userKey =[];
-
+    //////////listen to user input ;user click on item, return ID, extract number from the ID name,push ID into the array
         const userTurn = () => {
             console.log('userinput'+ userInput);
             var images = document.getElementsByClassName("pattern");
@@ -244,27 +232,28 @@ $(()=>{
                     var rawID = string.match(/\d+/g)
                     //console.log(rawID);
                     if(userKey.length<soundBank.length){;
-                    userKey.push(parseInt(rawID.join())); //need logic, only push to userKey when
-                    console.log(userKey);
+                        userKey.push(parseInt(rawID.join()));
+                        console.log(userKey);
+                    }
                 }
             }
         }
-    }
-    const userPlay =() =>{
-        console.log(soundBank);
-        if (JSON.stringify(userKey) == JSON.stringify(soundBank)){
-            console.log('match');
-            score++;
-            document.getElementById("score").innerHTML = score;
+        const userPlay =() =>{
+            console.log(soundBank);
+            if (JSON.stringify(userKey) == JSON.stringify(soundBank)){
+                console.log('match');
+                score++;
+                document.getElementById("score").innerHTML = 'Score : '+score;
+                //play();
+            }
+            else {
+                console.log('nope');
+            }
+            play();
         }
-        else {
-            console.log('nope');
-        }
-        play();
-    }
 
     /////countdown
-    var sec = 10;
+    var sec = 100;
     const countdown = () =>{
         let playInterval = setInterval(function(){
             if(sec > 0){
@@ -274,10 +263,33 @@ $(()=>{
             else if (sec==0){
                 console.log('yeepee over');
                 clearInterval(playInterval);
-                //document.body.classList.toggle('bgClass'); //to change the background image later
+                document.body.classList.toggle('bgClass'); //to change the background image later
+
+                var drumInvisible = document.getElementById('drums');
+                drumInvisible.classList.toggle('alphabetClass');
+
+                var resetVisible =document.getElementById('reset');
+                resetVisible.classList.toggle('alphabetDisplay');
+
+                var playInvisible = document.getElementById('play');
+                playInvisible.classList.toggle('alphabetClass');
+
             }
         },1000);
     }
-    //window.onload=countdown();
 
-})
+    const free = () => {
+        var toggling = document.getElementById("alphabet");
+        toggling.classList.toggle('alphabetDisplay');
+
+        var leftInvisible = document.getElementById('leftWrapper');
+        leftInvisible.classList.toggle('alphabetClass');
+
+        var scoreInvisible = document.getElementById('score');
+        scoreInvisible.classList.toggle('alphabetClass');
+
+        var indicatorInvisible = document.getElementById('indicator');
+        indicatorInvisible.classList.toggle('alphabetClass');
+    }
+
+    document.getElementById("free").addEventListener("click", free);
