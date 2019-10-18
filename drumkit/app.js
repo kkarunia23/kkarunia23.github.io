@@ -253,7 +253,7 @@
         }
 
     /////countdown
-    var sec = 100;
+    var sec = 30;
     const countdown = () =>{
         let playInterval = setInterval(function(){
             if(sec > 0){
