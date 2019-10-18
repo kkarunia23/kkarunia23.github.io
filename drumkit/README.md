@@ -3,10 +3,10 @@ Follow the beats!
 Game Mode
 1. Free Mode: just whack the keyboard. Toggle to view the assigned keyboard letter to each drumkit.
 2. Play; comprises of several elements.
-2a) timer of 30 seconds
-2b) sequence: how many sequences to be followed (beat will be played every 0.5s)
-2c) drumkit: how many drumkit to be activated
-2d) every successful match of all the sequence will result in score +1 (user has 2.5s to match before the next sequence is played)
+-timer of 30 seconds
+-sequence: how many sequences to be followed (beat will be played every 0.5s)
+-drumkit: how many drumkit to be activated
+-every successful match of all the sequence will result in score +1 (user has 2.5s to match before the next sequence is played)
 3. After timer reach 0, user has the option to reset the game.
 
 Possible improvements/bug to be squashed
